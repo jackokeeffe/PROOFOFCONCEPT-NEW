@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>love.1 | Watch Now</title>
+  <title>The Lovers | Watch Now</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/light/favicon-32x32.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/dark/favicon-32x32.png" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/x-icon" href="/assets/favicons/light/favicon.ico" media="(prefers-color-scheme: light)">
@@ -98,12 +98,6 @@
       transition: width 0.15s ease-out;
     }
     .love1-section {
-      min-height: 100vh;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
       padding-top: 2.2rem;
       padding-bottom: 2.7rem;
       box-sizing: border-box;
@@ -115,8 +109,8 @@
       flex-direction: row;
       align-items: flex-end;
       justify-content: flex-start;
-      margin-top: 2vw;
-      margin-bottom: 2.2vw;
+      margin-top: 2.5vw;
+      margin-bottom: 3vw;
       position: relative;
       height: 22vw;
       min-height: 200px;
@@ -136,23 +130,9 @@
       box-shadow: 0 6px 24px rgba(0,0,0,0.11);
       position: relative;
       z-index: 1;
-      margin-left: -3vw;
+      margin-left: 0;
       border: 2px solid #fff;
       transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .still-card:first-child {
-      margin-left: 0;
-      z-index: 3;
-      transform: scale(1.035) rotate(-2.5deg);
-    }
-    .still-card:nth-child(2) {
-      z-index: 2;
-      transform: scale(1.01) rotate(1.5deg);
-    }
-    .still-card:last-child {
-      z-index: 1;
-      opacity: 0.88;
-      transform: scale(0.99) rotate(-1.5deg);
     }
     .love1-content {
       display: flex;
@@ -165,6 +145,7 @@
       box-sizing: border-box;
       margin-top: 1.2vw;
       gap: 3vw;
+      position: relative;
     }
     .love1-left {
       flex: 0 1 40vw;
@@ -225,6 +206,43 @@
       min-width: 260px;
       margin-top: 1vw;
     }
+    .get-involved {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 28vw;
+      min-width: 220px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      z-index: 10;
+      margin: 0;
+      padding: 0;
+    }
+    .get-involved-title {
+      font-size: 2.2vw;
+      font-weight: 900;
+      text-decoration: underline;
+      margin-bottom: 0.5vw;
+      letter-spacing: 0.01em;
+      color: #111;
+    }
+    .get-involved-line {
+      font-size: 1.1vw;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.2vw;
+      text-align: right;
+    }
+    .get-involved-email {
+      font-size: 1.1vw;
+      font-weight: 700;
+      color: #111;
+      text-align: right;
+      text-decoration: underline;
+      margin-top: 0.5vw;
+    }
     .love1-desc {
       font-family: 'NeueHaasGrotesk', Helvetica, Arial, sans-serif;
       font-size: 2vw;
@@ -233,28 +251,7 @@
       max-width: 36vw;
       line-height: 1.3;
       text-align: left;
-    }
-    @media (max-width: 900px) {
-      .main-header-title { font-size: 1.5rem; }
-      .love1-section { padding-top: 2.7rem; padding-bottom: 1.5rem; }
-      .stills-row { height: 32vw; min-height: 110px; max-height: 160px; margin-top: 4vw; margin-bottom: 4vw; padding-left: 2vw; }
-      .still-card { width: 32vw; min-width: 110px; max-width: 160px; border-radius: 2vw; }
-      .love1-content { flex-direction: column; gap: 2vw; padding: 0 2vw; }
-      .love1-left, .love1-right { min-width: 0; width: 100%; margin-top: 0; }
-      .love1-title { font-size: 2rem; }
-      .love1-subtitle { font-size: 1.2rem; }
-      .love1-btn { font-size: 1rem; padding: 0.8rem 2rem; }
-      .love1-desc { font-size: 1.2rem; max-width: 100%; }
-    }
-    @media (max-width: 600px) {
-      .main-header-title { font-size: 1.1rem; }
-      .love1-section { padding-top: 1.5rem; padding-bottom: 1rem; }
-      .stills-row { height: 36vw; min-height: 60px; max-height: 80px; margin-top: 7vw; margin-bottom: 7vw; padding-left: 0.5vw; }
-      .still-card { width: 40vw; min-width: 60px; max-width: 80px; border-radius: 3vw; }
-      .love1-title { font-size: 1.1rem; }
-      .love1-subtitle { font-size: 0.7rem; }
-      .love1-btn { font-size: 0.7rem; padding: 0.4rem 1rem; }
-      .love1-desc { font-size: 0.7rem; }
+      margin-top: 0;
     }
     .back-btn {
       display: block;
@@ -274,127 +271,14 @@
       opacity: 0.92;
       position: relative;
       z-index: 10;
+      width: auto;
+      /* Remove any width: 100% or similar if present */
     }
     .back-btn:hover {
       background: #111;
       color: #fff;
       border: 1.5px solid #111;
       opacity: 1;
-    }
-    /* --- Info Section (Footer) Styles from index.html --- */
-    .info-section {
-      background: #fff;
-      color: #000;
-      min-height: 33vh;
-      height: 33vh;
-      width: 100vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      scroll-snap-align: start;
-    }
-    .info-content {
-      width: 90vw;
-      max-width: 1200px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 4vw;
-      margin: 0 auto;
-      padding: 4vw 0;
-    }
-    .info-left, .info-right {
-      flex: 1 1 0;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      min-width: 0;
-    }
-    .info-header {
-      font-size: 2.2vw;
-      font-family: 'SuperBrigadeCond', sans-serif;
-      font-weight: 900;
-      margin-bottom: 1vw;
-      letter-spacing: 0.01em;
-    }
-    .info-paragraph {
-      font-size: 0.95vw;
-      font-family: 'Alexandria', sans-serif;
-      font-weight: 500;
-      margin-bottom: 0;
-      line-height: 1.5;
-      max-width: 90%;
-    }
-    .info-email {
-      font-size: 0.95vw;
-      font-family: 'Alexandria', sans-serif;
-      font-weight: 500;
-      margin-bottom: 1vw;
-      word-break: break-all;
-    }
-    .info-icons {
-      display: flex;
-      flex-direction: row;
-      gap: 1.2vw;
-      align-items: center;
-    }
-    .info-icon svg {
-      display: block;
-      width: 28px;
-      height: 28px;
-      stroke: #000;
-      fill: none;
-      transition: stroke 0.2s;
-    }
-    .info-icon {
-      font-family: 'Alexandria', sans-serif;
-      font-weight: 500;
-      font-size: 0.95vw;
-    }
-    .info-icon:hover svg {
-      stroke: #666;
-    }
-    @media (max-width: 900px) {
-      .info-content {
-        flex-direction: column;
-        gap: 2vw;
-        align-items: stretch;
-      }
-      .info-header {
-        font-size: 1.5rem;
-      }
-      .info-paragraph, .info-email {
-        font-size: 1rem;
-      }
-      .info-section {
-        min-height: 40vh;
-        height: auto;
-        padding: 0 0 2vw 0;
-      }
-      .info-content {
-        padding: 6vw 0 2vw 0;
-      }
-      .info-icons {
-        gap: 2vw;
-      }
-      .info-icon svg {
-        width: 32px;
-        height: 32px;
-      }
-    }
-    @media (max-width: 600px) {
-      .info-header {
-        font-size: 1.3rem;
-      }
-      .info-paragraph, .info-email, .info-icon {
-        font-size: 1rem;
-      }
-      .info-icon svg {
-        width: 28px;
-        height: 28px;
-      }
     }
   </style>
 </head>
@@ -406,18 +290,23 @@
   <div class="progress-bar" id="progress-bar"></div>
   <main class="love1-section" id="main-section">
     <div class="stills-row">
-      <img src="assets/images/love-1.jpg" class="still-card" alt="love.1 still 1">
-      <img src="assets/images/lovers.jpg" class="still-card" alt="love.1 still 2">
-      <img src="assets/images/love-1.jpg" class="still-card" alt="love.1 still 3">
+      <img src="assets/images/lovers.jpg" class="still-card" alt="The Lovers still">
     </div>
     <div class="love1-content">
+      <div class="get-involved">
+        <div class="get-involved-title">GET INVOLVED!</div>
+        <div class="get-involved-line">DO YOU MAKE:</div>
+        <div class="get-involved-line">MUSIC? ART?</div>
+        <div class="get-involved-line">WANT TO FEATURE YOUR WORK?</div>
+        <a class="get-involved-email" href="mailto:contact@proof-of-concept.ca">email contact@proof-of-concept.ca</a>
+      </div>
       <div class="love1-left">
-        <div class="love1-title">love.1</div>
-        <div class="love1-subtitle">an instagram reel</div>
-        <a class="love1-btn" href="https://www.instagram.com/reel/C2vQnQ0OQwK/" target="_blank" rel="noopener">watch now</a>
+        <div class="love1-title">The Lovers</div>
+        <div class="love1-subtitle">A FILM EXPERIENCE</div>
+        <a class="love1-btn" href="#" tabindex="-1">COMING SOON</a>
       </div>
       <div class="love1-right">
-        <div class="love1-desc">a visual-poem on the themes of love, created as an instagram reel to showcase the ability for artistic merit in any medium.</div>
+        <div class="love1-desc">A film experience exploring pivotal moments between two people, who may or may not be in a relationship.</div>
       </div>
     </div>
     <a href="index.html" class="back-btn" aria-label="Back to home">Back</a>
@@ -453,20 +342,6 @@
       const scrollPercent = (scrollTop / docHeight) * 100;
       progressBar.style.width = Math.min(Math.max(scrollPercent, 0), 100) + "%";
     });
-    // Footer reveal on scroll
-    const mainSection = document.getElementById('main-section');
-    const infoSection = document.getElementById('info-section');
-    function checkFooter() {
-      const rect = mainSection.getBoundingClientRect();
-      if (rect.bottom <= window.innerHeight + 40) {
-        infoSection.classList.add('visible');
-      } else {
-        infoSection.classList.remove('visible');
-      }
-    }
-    window.addEventListener('scroll', checkFooter);
-    window.addEventListener('resize', checkFooter);
-    document.addEventListener('DOMContentLoaded', checkFooter);
   </script>
 </body>
 </html> 
