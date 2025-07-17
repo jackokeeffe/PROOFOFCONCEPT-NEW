@@ -81,6 +81,13 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
       position: relative;
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
+
+    body.fade {
+      opacity: 0;
+      transition: opacity 0.4s;
     }
 
     header {
@@ -1187,8 +1194,8 @@ a, a:hover, a:active, a:focus {
         </div>
         <div class="community-square"></div>
         <div class="community-bottom">
-          <a class="community-link" href="community.html">SUBMIT NOW</a>
-          <div class="community-credit">(free cinematography credit)</div>
+          <a class="community-link" href="community.html">COMING SOON</a>
+          <div class="community-credit">(follow @proof__concept)</div>
         </div>
       </div>
     </div>
@@ -1379,6 +1386,30 @@ a, a:hover, a:active, a:focus {
       ]
     }
     </script>
+
+<script>
+  // Fade in on load
+  document.body.classList.add('fade');
+  window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.remove('fade');
+  });
+
+  // Fade out on link click
+  document.querySelectorAll('a').forEach(link => {
+    // Only for internal links
+    if (link.hostname === window.location.hostname) {
+      link.addEventListener('click', function(e) {
+        // Open in new tab or anchor links should not fade
+        if (link.target === '_blank' || link.href.includes('#')) return;
+        e.preventDefault();
+        document.body.classList.add('fade');
+        setTimeout(() => {
+          window.location = link.href;
+        }, 400); // match the CSS transition duration
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
