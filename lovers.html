@@ -208,38 +208,39 @@
     }
     .get-involved {
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 28vw;
-      min-width: 220px;
-      max-width: 400px;
+      top: 5.5vw;
+      right: 10vw;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
       z-index: 10;
       margin: 0;
       padding: 0;
+      width: auto;
+      text-align: left;
+      background: #ffffff;
     }
     .get-involved-title {
-      font-size: 2.2vw;
+      font-size: 3.2vw;
       font-weight: 900;
       text-decoration: underline;
       margin-bottom: 0.5vw;
       letter-spacing: 0.01em;
       color: #111;
+      text-align: left;
     }
     .get-involved-line {
-      font-size: 1.1vw;
+      font-size: 2vw;
       font-weight: 700;
       color: #111;
       margin-bottom: 0.2vw;
-      text-align: right;
+      text-align: left;
     }
     .get-involved-email {
-      font-size: 1.1vw;
+      font-size: 2vw;
       font-weight: 700;
       color: #111;
-      text-align: right;
+      text-align: left;
       text-decoration: underline;
       margin-top: 0.5vw;
     }
@@ -254,8 +255,7 @@
       margin-top: 0;
     }
     .back-btn {
-      display: block;
-      margin: 2.5rem auto 0 auto;
+      /* Remove display: block and margin: auto centering */
       background: #fff;
       color: #111;
       border: 1.5px solid #111;
@@ -272,13 +272,19 @@
       position: relative;
       z-index: 10;
       width: auto;
-      /* Remove any width: 100% or similar if present */
+      margin: 2.5rem 0 0 0; /* Only top margin for spacing */
     }
     .back-btn:hover {
       background: #111;
       color: #fff;
       border: 1.5px solid #111;
       opacity: 1;
+    }
+    .back-btn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
     }
   </style>
 </head>
@@ -293,13 +299,6 @@
       <img src="assets/images/lovers.jpg" class="still-card" alt="The Lovers still">
     </div>
     <div class="love1-content">
-      <div class="get-involved">
-        <div class="get-involved-title">GET INVOLVED!</div>
-        <div class="get-involved-line">DO YOU MAKE:</div>
-        <div class="get-involved-line">MUSIC? ART?</div>
-        <div class="get-involved-line">WANT TO FEATURE YOUR WORK?</div>
-        <a class="get-involved-email" href="mailto:contact@proof-of-concept.ca">email contact@proof-of-concept.ca</a>
-      </div>
       <div class="love1-left">
         <div class="love1-title">The Lovers</div>
         <div class="love1-subtitle">A FILM EXPERIENCE</div>
@@ -309,7 +308,16 @@
         <div class="love1-desc">A film experience exploring pivotal moments between two people, who may or may not be in a relationship.</div>
       </div>
     </div>
-    <a href="index.html" class="back-btn" aria-label="Back to home">Back</a>
+    <div class="get-involved">
+      <div class="get-involved-title">GET INVOLVED!</div>
+      <div class="get-involved-line">DO YOU MAKE:</div>
+      <div class="get-involved-line">MUSIC? ART?</div>
+      <div class="get-involved-line">WANT TO FEATURE YOUR WORK?</div>
+      <a class="get-involved-email" href="mailto:contact@proof-of-concept.ca">email contact@proof-of-concept.ca</a>
+    </div>
+    <div class="back-btn-container">
+      <a href="index.html" class="back-btn" aria-label="Back to home">Back</a>
+    </div>
   </main>
   <script>
     // Custom cursor
