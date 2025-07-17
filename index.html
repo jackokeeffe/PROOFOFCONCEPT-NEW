@@ -1083,10 +1083,14 @@
         margin-bottom: 0;
       }
       .feature-overlay-content .feature-title {
-        font-size: 3.5rem !important;
+        font-size: 5vw !important;
       }
       .feature-overlay-content .feature-subtitle {
-        font-size: 2.2rem !important;
+        font-size: 3vw !important;
+      }
+      .feature-overlay-content {
+        margin-top: 2vw;
+        margin-bottom: 0;
       }
       .feature-overlay-content .feature-link {
         font-size: 2rem !important;
@@ -1134,12 +1138,65 @@
         width: 28px;
         height: 28px;
       }
+      /* --- Make home page main text and footer icons larger on mobile --- */
+      .hero-overlay .hero-title {
+        font-size: 3.2rem;
+      }
+      .hero-overlay .hero-subtitle {
+        font-size: 1.7rem;
+      }
+      .hero-overlay .hero-coming-soon {
+        font-size: 1.4rem;
+      }
+      .feature-overlay-content .feature-title {
+        font-size: 2.8rem !important;
+      }
+      .feature-overlay-content .feature-subtitle {
+        font-size: 1.7rem !important;
+      }
+      .community-overlay .community-title {
+        font-size: 2.8rem !important;
+      }
+      .community-overlay .community-subtitle {
+        font-size: 1.7rem !important;
+      }
+      .horror-title {
+        font-size: 3rem !important;
+      }
+      .horror-subtitle {
+        font-size: 1.7rem !important;
+      }
+      .info-icon svg, .info-icon i {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 2rem !important;
+      }
       .community-overlay .community-title,
       .community-overlay .community-subtitle,
       .community-overlay .community-link,
       .community-overlay .community-credit {
         -webkit-text-stroke: 1.2px #000 !important;
         text-stroke: 1.2px #000 !important;
+      }
+      /* --- Force love.1 text much larger and much higher on mobile (final strong override) --- */
+      #movies .feature-overlay-content {
+        margin-top: -50vw !important;
+      }
+      #movies .feature-title {
+        font-size: 16vw !important;
+      }
+      #movies .feature-subtitle {
+        font-size: 9vw !important;
+      }
+      #movies .feature-overlay {
+        align-items: center !important;
+        justify-content: flex-end !important;
+      }
+      #movies .feature-overlay-content {
+        margin-top: 0 !important;
+        margin-bottom: 8vw !important;
+        text-align: left !important;
+        transform: translate(2vw, -4vw) !important;
       }
     }
   </style>
@@ -1168,7 +1225,7 @@ a, a:hover, a:active, a:focus {
 
   <!-- Sections -->
   <section id="landing" style="position:relative;">
-    <img src="assets/images/lovers.jpg" alt="" class="full-width-img" draggable="false">
+    <img src="assets/images/lovers.jpg" alt="" class="full-width-img" draggable="false" style="object-position: 90% 20%;">
     <div class="section-overlay hero-overlay">
       <div class="hero-title">THE LOVERS</div>
       <div class="hero-subtitle">A FILM EXPERIENCE</div>
