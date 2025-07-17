@@ -58,7 +58,11 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      user-select: none;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -ms-user-select: none !important;
+      -moz-user-select: none !important;
+      -webkit-user-drag: none !important;
     }
 
     html, body {
@@ -1164,7 +1168,7 @@ a, a:hover, a:active, a:focus {
 
   <!-- Sections -->
   <section id="landing" style="position:relative;">
-    <img src="assets/images/lovers.jpg" alt="" class="full-width-img">
+    <img src="assets/images/lovers.jpg" alt="" class="full-width-img" draggable="false">
     <div class="section-overlay hero-overlay">
       <div class="hero-title">THE LOVERS</div>
       <div class="hero-subtitle">A FILM EXPERIENCE</div>
@@ -1174,7 +1178,7 @@ a, a:hover, a:active, a:focus {
   </section>
 
   <section id="movies" style="position:relative;">
-    <img src="assets/images/love-1.jpg" alt="" class="full-width-img">
+    <img src="assets/images/love-1.jpg" alt="" class="full-width-img" draggable="false">
     <div class="section-overlay feature-overlay">
       <div class="feature-overlay-content">
         <div class="feature-title">love.1</div>
@@ -1203,7 +1207,7 @@ a, a:hover, a:active, a:focus {
 
   <!-- Add new HORROR section at the bottom -->
   <section class="horror-section" style="position:relative; min-height:100vh; width:100vw;">
-    <img src="assets/images/horror.jpg" alt="" class="full-width-img" style="object-fit: cover; width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; z-index: 1; background: #000;">
+    <img src="assets/images/horror.jpg" alt="" class="full-width-img" style="object-fit: cover; width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; z-index: 1; background: #000;" draggable="false">
     <div class="horror-overlay" style="z-index:10; position:absolute; top:0; left:0; width:100vw; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;">
       <div class="horror-title" style="font-family:'Imbue',serif;font-size:10vw;color:#fff;text-align:center;letter-spacing:0.05em;text-shadow:0 2px 16px rgba(0,0,0,0.7);font-weight:900;">HORROR</div>
       <div class="horror-subtitle" style="font-family:'Koulen',sans-serif;font-size:3vw;color:#fff;text-align:center;letter-spacing:0.03em;margin-top:0;">AN ADAPTIVE EXPERIENCE</div>

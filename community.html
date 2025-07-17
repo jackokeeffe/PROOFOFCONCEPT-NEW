@@ -38,11 +38,24 @@
       scroll-snap-type: y mandatory;
       cursor: none !important;
     }
+    body {
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
+    body.fade {
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
     a, button, .love1-btn, .back-btn, *:hover, *:active, *:focus {
       cursor: none !important;
     }
     * {
       box-sizing: border-box;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -ms-user-select: none !important;
+      -moz-user-select: none !important;
+      -webkit-user-drag: none !important;
     }
     .custom-cursor {
       position: fixed;
@@ -406,15 +419,15 @@
   <div class="progress-bar" id="progress-bar"></div>
   <main class="love1-section" id="main-section">
     <div class="stills-row">
-      <img src="assets/images/community/image1.jpg" class="still-card" alt="community still 1">
-      <img src="assets/images/community/image2.jpg" class="still-card" alt="community still 2">
-      <img src="assets/images/community/image3.jpg" class="still-card" alt="community still 3">
+      <img src="assets/images/community/image1.jpg" class="still-card" alt="community still 1" draggable="false">
+      <img src="assets/images/community/image2.jpg" class="still-card" alt="community still 2" draggable="false">
+      <img src="assets/images/community/image3.jpg" class="still-card" alt="community still 3" draggable="false">
     </div>
     <div class="love1-content">
       <div class="love1-left">
         <div class="love1-title">#COMMUNITYFILM</div>
         <div class="love1-subtitle">real-time, democratically directed</div>
-        <a class="love1-btn" href="https://www.instagram.com/reel/C2vQnQ0OQwK/" target="_blank" rel="noopener">coming soon</a>
+        <a class="love1-btn" href="" target="_blank" rel="noopener">coming soon</a>
       </div>
       <div class="love1-right">
         <div class="love1-desc">a real-time, community-driven film experience built for social-media with custom editing software.</div>
@@ -467,6 +480,29 @@
     window.addEventListener('scroll', checkFooter);
     window.addEventListener('resize', checkFooter);
     document.addEventListener('DOMContentLoaded', checkFooter);
+  </script>
+  <script>
+    // Fade in on load
+    document.body.classList.add('fade');
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('fade');
+    });
+
+    // Fade out on link click
+    document.querySelectorAll('a').forEach(link => {
+      // Only for internal links
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener('click', function(e) {
+          // Open in new tab or anchor links should not fade
+          if (link.target === '_blank' || link.href.includes('#')) return;
+          e.preventDefault();
+          document.body.classList.add('fade');
+          setTimeout(() => {
+            window.location = link.href;
+          }, 400); // match the CSS transition duration
+        });
+      }
+    });
   </script>
 </body>
 </html> 

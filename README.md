@@ -23,7 +23,7 @@ A multidisciplinary media studio and film production company focused on unconven
    git clone <your-repo-url>
    cd proof-new
    ```
-2. **Open `combined.html` in your browser.**
+2. **Open `index.html` in your browser.**
    - No build step required. All assets are local.
 
 ### File Structure
@@ -31,7 +31,7 @@ A multidisciplinary media studio and film production company focused on unconven
 ```
 proof-new/
 ├── 404.html
-├── combined.html
+├── index.html
 ├── assets/
 │   ├── favicons/
 │   ├── images/
@@ -40,7 +40,9 @@ proof-new/
 │   └── ...
 ```
 
-- **combined.html**: Main site file, includes all HTML, CSS, and JS.
+- **index.html**: Main site file, includes all HTML, CSS, and JS.
+  - Uses [Font Awesome](https://fontawesome.com/) for social/contact icons in the footer.
+- **community.html**: Community film submission page.
 - **assets/images/**: Section background images and artwork.
 - **assets/favicons/**: Favicon and manifest files.
 - **assets/*.otf/ttf**: Custom font files.
@@ -49,9 +51,9 @@ proof-new/
 
 ## Local Development
 
-- Edit `combined.html` directly for all content, style, and script changes.
+- Edit `index.html` directly for all content, style, and script changes.
 - Add new images to `assets/images/` and reference them in the HTML.
-- For custom fonts, add `.otf` or `.ttf` files to `assets/` and update the `@font-face` rules in the `<style>` block.
+- For custom fonts, add `.otf` or `.ttf` files to `assets/fonts/` and update the `@font-face` rules in the `<style>` block.
 
 ---
 

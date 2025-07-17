@@ -23,6 +23,19 @@
       justify-content: center;
       flex-direction: column;
       text-align: center;
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
+    * {
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -ms-user-select: none !important;
+      -moz-user-select: none !important;
+      -webkit-user-drag: none !important;
+    }
+    body.fade {
+      opacity: 0;
+      transition: opacity 0.4s;
     }
     h1 {
       font-size: 2.2em;
@@ -48,4 +61,27 @@
   <h1>404</h1>
   <p>this page doesn’t exist. go <a href="/">home</a>.</p>
 </body>
+<script>
+  // Fade in on load
+  document.body.classList.add('fade');
+  window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.remove('fade');
+  });
+
+  // Fade out on link click
+  document.querySelectorAll('a').forEach(link => {
+    // Only for internal links
+    if (link.hostname === window.location.hostname) {
+      link.addEventListener('click', function(e) {
+        // Open in new tab or anchor links should not fade
+        if (link.target === '_blank' || link.href.includes('#')) return;
+        e.preventDefault();
+        document.body.classList.add('fade');
+        setTimeout(() => {
+          window.location = link.href;
+        }, 400); // match the CSS transition duration
+      });
+    }
+  });
+</script>
 </html>
