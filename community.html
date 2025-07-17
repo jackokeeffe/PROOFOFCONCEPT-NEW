@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>#COMMUNITYFILM | Coming Soon</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/light/favicon-32x32.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/dark/favicon-32x32.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/x-icon" href="/assets/favicons/light/favicon.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/x-icon" href="/assets/favicons/dark/favicon.ico" media="(prefers-color-scheme: dark)">
+  <!-- Fallback favicon (optional) -->
+  <link rel="icon" href="/assets/favicons/favicon-32x32.png">
+  <style>
+    @font-face {
+      font-family: 'NeueHaasGrotesk';
+      src: url('assets/fonts/neuehaasgrotdispround-75bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'SuperBrigadeCond';
+      src: url('assets/fonts/superbrigadecond.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    html, body {
+      height: 100%;
+      background: #fff;
+      color: #111;
+      font-family: 'NeueHaasGrotesk', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+      overflow: hidden !important;
+      scroll-snap-type: y mandatory;
+      cursor: none !important;
+    }
+    a, button, .love1-btn, .back-btn, *:hover, *:active, *:focus {
+      cursor: none !important;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: #111;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.15s, background-color 0.25s;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .custom-cursor.expand {
+      transform: translate(-50%, -50%) scale(2.5);
+      background-color: #11111144;
+    }
+    .custom-cursor.cursor-hover {
+      transform: translate(-50%, -50%) scale(1.5);
+      background-color: #111111cc;
+    }
+    .main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      background: #000;
+      color: #fff;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.4rem 0 0.2rem 0;
+      border-bottom: 1px solid #222;
+    }
+    .main-header-title {
+      font-family: 'SuperBrigadeCond', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+      font-weight: bold;
+    }
+    .progress-bar {
+      position: fixed;
+      bottom: 3.5rem;
+      left: 0;
+      height: 6px;
+      width: 0%;
+      background-color: #111;
+      z-index: 10000;
+      pointer-events: none;
+      border-radius: 3px;
+      transition: width 0.15s ease-out;
+    }
+    .love1-section {
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 2.2rem;
+      padding-bottom: 2.7rem;
+      box-sizing: border-box;
+      position: relative;
+      scroll-snap-align: start;
+    }
+    .stills-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: flex-start;
+      margin-top: 2vw;
+      margin-bottom: 2.2vw;
+      position: relative;
+      height: 22vw;
+      min-height: 200px;
+      max-height: 400px;
+      width: 100vw;
+      overflow-x: visible;
+      padding-left: 8vw;
+      gap: 0;
+    }
+    .still-card {
+      width: 26vw;
+      min-width: 200px;
+      max-width: 400px;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1.5vw;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.11);
+      position: relative;
+      z-index: 1;
+      margin-left: -3vw;
+      border: 2px solid #fff;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .still-card:first-child {
+      margin-left: 0;
+      z-index: 3;
+      transform: scale(1.035) rotate(-2.5deg);
+    }
+    .still-card:nth-child(2) {
+      z-index: 2;
+      transform: scale(1.01) rotate(1.5deg);
+    }
+    .still-card:last-child {
+      z-index: 1;
+      opacity: 0.88;
+      transform: scale(0.99) rotate(-1.5deg);
+    }
+    .love1-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100vw;
+      max-width: 100vw;
+      padding: 0 8vw;
+      box-sizing: border-box;
+      margin-top: 1.2vw;
+      gap: 3vw;
+    }
+    .love1-left {
+      flex: 0 1 40vw;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      min-width: 260px;
+    }
+    .love1-title {
+      font-family: 'NeueHaasGrotesk', Helvetica, Arial, sans-serif;
+      font-size: 4vw;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.7vw;
+      line-height: 1.05;
+      color: #111;
+    }
+    .love1-subtitle {
+      font-family: 'NeueHaasGrotesk', Helvetica, Arial, sans-serif;
+      font-size: 1.9vw;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 2vw;
+      line-height: 1.1;
+    }
+    .love1-btn {
+      background: #111;
+      color: #fff;
+      font-family: 'NeueHaasGrotesk', Helvetica, Arial, sans-serif;
+      font-size: 1vw;
+      font-weight: 800;
+      border: none;
+      border-radius: 0.5vw;
+      padding: 0.5vw 1.5vw;
+      margin-bottom: 1.7vw;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1.5px solid #111;
+      text-decoration: none !important;
+    }
+    .love1-btn:hover {
+      background: #fff;
+      color: #111;
+      border: 1.5px solid #111;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+      font-size: 1vw;
+      padding: 0.5vw 1.5vw;
+      text-decoration: none !important;
+    }
+    .love1-right {
+      flex: 1 1 40vw;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      min-width: 260px;
+      margin-top: 1vw;
+    }
+    .love1-desc {
+      font-family: 'NeueHaasGrotesk', Helvetica, Arial, sans-serif;
+      font-size: 2vw;
+      font-weight: 700;
+      color: #111;
+      max-width: 36vw;
+      line-height: 1.3;
+      text-align: left;
+    }
+    @media (max-width: 900px) {
+      .main-header-title { font-size: 1.5rem; }
+      .love1-section { padding-top: 2.7rem; padding-bottom: 1.5rem; }
+      .stills-row { height: 32vw; min-height: 110px; max-height: 160px; margin-top: 4vw; margin-bottom: 4vw; padding-left: 2vw; }
+      .still-card { width: 32vw; min-width: 110px; max-width: 160px; border-radius: 2vw; }
+      .love1-content { flex-direction: column; gap: 2vw; padding: 0 2vw; }
+      .love1-left, .love1-right { min-width: 0; width: 100%; margin-top: 0; }
+      .love1-title { font-size: 2rem; }
+      .love1-subtitle { font-size: 1.2rem; }
+      .love1-btn { font-size: 1rem; padding: 0.8rem 2rem; }
+      .love1-desc { font-size: 1.2rem; max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .main-header-title { font-size: 1.1rem; }
+      .love1-section { padding-top: 1.5rem; padding-bottom: 1rem; }
+      .stills-row { height: 36vw; min-height: 60px; max-height: 80px; margin-top: 7vw; margin-bottom: 7vw; padding-left: 0.5vw; }
+      .still-card { width: 40vw; min-width: 60px; max-width: 80px; border-radius: 3vw; }
+      .love1-title { font-size: 1.1rem; }
+      .love1-subtitle { font-size: 0.7rem; }
+      .love1-btn { font-size: 0.7rem; padding: 0.4rem 1rem; }
+      .love1-desc { font-size: 0.7rem; }
+    }
+    .back-btn {
+      display: block;
+      margin: 2.5rem auto 0 auto;
+      background: #fff;
+      color: #111;
+      border: 1.5px solid #111;
+      border-radius: 0.5vw;
+      font-family: 'NeueHaasGrotesk', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.4rem 1.2rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      opacity: 0.92;
+      position: relative;
+      z-index: 10;
+    }
+    .back-btn:hover {
+      background: #111;
+      color: #fff;
+      border: 1.5px solid #111;
+      opacity: 1;
+    }
+    /* --- Info Section (Footer) Styles from index.html --- */
+    .info-section {
+      background: #fff;
+      color: #000;
+      min-height: 33vh;
+      height: 33vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      scroll-snap-align: start;
+    }
+    .info-content {
+      width: 90vw;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4vw;
+      margin: 0 auto;
+      padding: 4vw 0;
+    }
+    .info-left, .info-right {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+    }
+    .info-header {
+      font-size: 2.2vw;
+      font-family: 'SuperBrigadeCond', sans-serif;
+      font-weight: 900;
+      margin-bottom: 1vw;
+      letter-spacing: 0.01em;
+    }
+    .info-paragraph {
+      font-size: 0.95vw;
+      font-family: 'Alexandria', sans-serif;
+      font-weight: 500;
+      margin-bottom: 0;
+      line-height: 1.5;
+      max-width: 90%;
+    }
+    .info-email {
+      font-size: 0.95vw;
+      font-family: 'Alexandria', sans-serif;
+      font-weight: 500;
+      margin-bottom: 1vw;
+      word-break: break-all;
+    }
+    .info-icons {
+      display: flex;
+      flex-direction: row;
+      gap: 1.2vw;
+      align-items: center;
+    }
+    .info-icon svg {
+      display: block;
+      width: 28px;
+      height: 28px;
+      stroke: #000;
+      fill: none;
+      transition: stroke 0.2s;
+    }
+    .info-icon {
+      font-family: 'Alexandria', sans-serif;
+      font-weight: 500;
+      font-size: 0.95vw;
+    }
+    .info-icon:hover svg {
+      stroke: #666;
+    }
+    @media (max-width: 900px) {
+      .info-content {
+        flex-direction: column;
+        gap: 2vw;
+        align-items: stretch;
+      }
+      .info-header {
+        font-size: 1.5rem;
+      }
+      .info-paragraph, .info-email {
+        font-size: 1rem;
+      }
+      .info-section {
+        min-height: 40vh;
+        height: auto;
+        padding: 0 0 2vw 0;
+      }
+      .info-content {
+        padding: 6vw 0 2vw 0;
+      }
+      .info-icons {
+        gap: 2vw;
+      }
+      .info-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    @media (max-width: 600px) {
+      .info-header {
+        font-size: 1.3rem;
+      }
+      .info-paragraph, .info-email, .info-icon {
+        font-size: 1rem;
+      }
+      .info-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="custom-cursor" id="cursor"></div>
+  <header class="main-header">
+    <div class="main-header-title">PROOFOFCONCEPT</div>
+  </header>
+  <div class="progress-bar" id="progress-bar"></div>
+  <main class="love1-section" id="main-section">
+    <div class="stills-row">
+      <img src="assets/images/community/image1.jpg" class="still-card" alt="community still 1">
+      <img src="assets/images/community/image2.jpg" class="still-card" alt="community still 2">
+      <img src="assets/images/community/image3.jpg" class="still-card" alt="community still 3">
+    </div>
+    <div class="love1-content">
+      <div class="love1-left">
+        <div class="love1-title">#COMMUNITYFILM</div>
+        <div class="love1-subtitle">real-time, democratically directed</div>
+        <a class="love1-btn" href="https://www.instagram.com/reel/C2vQnQ0OQwK/" target="_blank" rel="noopener">coming soon</a>
+      </div>
+      <div class="love1-right">
+        <div class="love1-desc">a real-time, community-driven film experience built for social-media with custom editing software.</div>
+      </div>
+    </div>
+    <a href="index.html" class="back-btn" aria-label="Back to home">Back</a>
+  </main>
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById("cursor");
+    document.addEventListener("mousemove", e => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+    document.addEventListener("mousedown", () => {
+      cursor.classList.add("expand");
+    });
+    document.addEventListener("mouseup", () => {
+      cursor.classList.remove("expand");
+    });
+    // Custom cursor hover effect for links and buttons
+    const allLinks = document.querySelectorAll('a, button');
+    allLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        cursor.classList.add('cursor-hover');
+      });
+      link.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-hover');
+      });
+    });
+    // Scroll progress bar
+    const progressBar = document.getElementById("progress-bar");
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      progressBar.style.width = Math.min(Math.max(scrollPercent, 0), 100) + "%";
+    });
+    // Footer reveal on scroll
+    const mainSection = document.getElementById('main-section');
+    const infoSection = document.getElementById('info-section');
+    function checkFooter() {
+      const rect = mainSection.getBoundingClientRect();
+      if (rect.bottom <= window.innerHeight + 40) {
+        infoSection.classList.add('visible');
+      } else {
+        infoSection.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', checkFooter);
+    window.addEventListener('resize', checkFooter);
+    document.addEventListener('DOMContentLoaded', checkFooter);
+  </script>
+</body>
+</html> 
