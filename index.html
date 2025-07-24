@@ -761,16 +761,16 @@
       margin-bottom: 0;
       line-height: 1;
       color: #000;
-      -webkit-text-stroke: 0px #000;
-      text-stroke: 0px #000;
+      -webkit-text-stroke: 1px #fff;
+      text-stroke: 1px #fff;
     }
     .feature-overlay-content .feature-subtitle {
       font-size: 2.5vw;
       margin-bottom: 0;
       line-height: 1;
       color: #000;
-      -webkit-text-stroke: 0px #000;
-      text-stroke: 0px #000;
+      -webkit-text-stroke: 0.5px #fff;
+      text-stroke: 0.5px #fff;
     }
     .feature-overlay-content .feature-link {
       font-size: 2vw;
@@ -1223,17 +1223,25 @@ a, a:hover, a:active, a:focus {
   <!-- Scroll Progress Bar -->
   <div class="progress-bar" id="progress-bar"></div>
 
-  <!-- Sections -->
-  <section id="landing" style="position:relative;">
-    <img src="assets/images/lovers.jpg" alt="" class="full-width-img" draggable="false" style="object-position: 90% 20%;">
-    <div class="section-overlay hero-overlay">
-      <div class="hero-title">THE LOVERS</div>
-      <div class="hero-subtitle">A FILM EXPERIENCE</div>
-      <div class="hero-coming-soon">COMING SOON</div>
-      <a class="hero-link" href="lovers.html">GET INVOLVED</a>
+  <!-- COMMUNITYFILM section moved to the top -->
+  <section id="about" style="position:relative; background: #fff;">
+    <div class="text" lang="en" style="position:relative;">
+      <div class="section-overlay community-overlay">
+        <div class="community-top">
+          <div class="community-title">#COMMUNITYFILM</div>
+          <div class="community-subtitle">REAL-TIME, COMMUNALLY-DIRECTED</div>
+        </div>
+        <div class="community-square"></div>
+        <div class="community-bottom">
+          <a class="community-link" href="community.html">SUBMIT FOOTAGE</a>
+          <div class="community-credit">(FREE CINEMATOGRAPHY CREDIT)</div>
+        </div>
+      </div>
     </div>
   </section>
+  <!-- End COMMUNITYFILM section -->
 
+  <!-- love.1 section moved before The Lovers section -->
   <section id="movies" style="position:relative;">
     <img src="assets/images/love-1.jpg" alt="" class="full-width-img" draggable="false">
     <div class="section-overlay feature-overlay">
@@ -1244,23 +1252,19 @@ a, a:hover, a:active, a:focus {
       </div>
     </div>
   </section>
+  <!-- End love.1 section -->
 
-  <section id="about" style="position:relative; background: #fff;">
-    <div class="text" lang="en" style="position:relative;">
-      <!-- Remove the image if present -->
-      <div class="section-overlay community-overlay">
-        <div class="community-top">
-          <div class="community-title">#COMMUNITYFILM</div>
-          <div class="community-subtitle">REAL-TIME, COMMUNALLY-DIRECTED</div>
-        </div>
-        <div class="community-square"></div>
-        <div class="community-bottom">
-          <a class="community-link" href="community.html">COMING SOON</a>
-          <div class="community-credit">(follow @proof__concept)</div>
-        </div>
-      </div>
+  <!-- The Lovers section -->
+  <section id="landing" style="position:relative;">
+    <img src="assets/images/lovers.jpg" alt="" class="full-width-img" draggable="false" style="object-position: 90% 20%;">
+    <div class="section-overlay hero-overlay">
+      <div class="hero-title">THE LOVERS</div>
+      <div class="hero-subtitle">A FILM EXPERIENCE</div>
+      <div class="hero-coming-soon">COMING SOON</div>
+      <a class="hero-link" href="lovers.html">GET INVOLVED</a>
     </div>
   </section>
+  <!-- End The Lovers section -->
 
   <!-- Add new HORROR section at the bottom -->
   <section class="horror-section" style="position:relative; min-height:100vh; width:100vw;">
