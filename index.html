@@ -164,6 +164,12 @@
       border-radius: 3px;
       transition: width 0.15s ease-out;
     }
+    
+    @media (max-width: 600px) {
+      .progress-bar {
+        display: none;
+      }
+    }
 
     /* Each section is a snap point */
     section {
@@ -723,9 +729,8 @@
       pointer-events: auto;
     }
     .hero-overlay .hero-link {
-      position: absolute;
-      bottom: 4vw;
-      left: 20vw;
+      position: relative;
+      margin-top: 1vw;
       color: #fff;
       font-size: 2vw;
       font-family: 'NeueHaasGrotesk', sans-serif;
@@ -952,6 +957,13 @@
       justify-content: center;
       padding: 0;
     }
+    
+    @media (max-width: 600px) {
+      .info-section {
+        min-height: 25vh;
+        height: 25vh;
+      }
+    }
     .info-content {
       width: 90vw;
       max-width: 1200px;
@@ -1032,7 +1044,7 @@
         font-size: 1rem;
       }
       .info-section {
-        min-height: 40vh;
+        min-height: 35vh;
         height: auto;
         padding: 0 0 2vw 0;
       }
@@ -1073,7 +1085,7 @@
       }
       .hero-overlay .hero-link {
         font-size: 1.2rem;
-        left: 4vw;
+        margin-top: 0.5rem;
       }
       .feature-overlay-content {
         padding-left: 7vw;
@@ -1171,6 +1183,15 @@
         height: 36px !important;
         font-size: 2rem !important;
       }
+      /* Ensure info section is properly sized on mobile */
+      .info-section {
+        min-height: 35vh !important;
+        height: auto !important;
+        padding: 0 0 2vw 0 !important;
+      }
+      .info-content {
+        padding: 6vw 0 2vw 0 !important;
+      }
       .community-overlay .community-title,
       .community-overlay .community-subtitle,
       .community-overlay .community-link,
@@ -1258,10 +1279,12 @@ a, a:hover, a:active, a:focus {
   <section id="landing" style="position:relative;">
     <img src="assets/images/lovers.jpg" alt="" class="full-width-img" draggable="false" style="object-position: 90% 20%;">
     <div class="section-overlay hero-overlay">
-      <div class="hero-title">THE LOVERS</div>
-      <div class="hero-subtitle">A FILM EXPERIENCE</div>
-      <div class="hero-coming-soon">COMING SOON</div>
-      <a class="hero-link" href="lovers.html">GET INVOLVED</a>
+      <div>
+        <div class="hero-title">THE LOVERS</div>
+        <div class="hero-subtitle">A FILM EXPERIENCE</div>
+        <div class="hero-coming-soon">COMING SOON</div>
+        <a class="hero-link" href="lovers.html">GET INVOLVED</a>
+      </div>
     </div>
   </section>
   <!-- End The Lovers section -->
