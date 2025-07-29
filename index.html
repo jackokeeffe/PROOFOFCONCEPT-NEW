@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <title>PROOFOFCONCEPT ©  | A FILM PRODUCTION COMPANY</title>
 
     <meta name="description" content="a film-studio focused on augmented technologies, and profound experiences.">
@@ -63,6 +63,7 @@
       -ms-user-select: none !important;
       -moz-user-select: none !important;
       -webkit-user-drag: none !important;
+      touch-action: manipulation;
     }
 
     html, body {
@@ -152,24 +153,7 @@
       pointer-events: auto;
     }
 
-    .progress-bar {
-      position: fixed;
-      bottom: 3.5rem;
-      left: 0;
-      height: 6px;
-      width: 0%;
-      background-color: #222222;
-      z-index: 10000;
-      pointer-events: none;
-      border-radius: 3px;
-      transition: width 0.15s ease-out;
-    }
-    
-    @media (max-width: 600px) {
-      .progress-bar {
-        display: none;
-      }
-    }
+    /* Progress bar removed */
 
     /* Each section is a snap point */
     section {
@@ -292,6 +276,19 @@
     .custom-cursor.cursor-hover {
       transform: translate(-50%, -50%) scale(1.5);
       background-color: #222222cc;
+    }
+
+    /* Hide custom cursor on mobile devices */
+    @media (max-width: 768px) {
+      .custom-cursor {
+        display: none !important;
+      }
+      html, body {
+        cursor: auto !important;
+      }
+      * {
+        cursor: auto !important;
+      }
     }
 
     body::after {
@@ -1241,8 +1238,7 @@ a, a:hover, a:active, a:focus {
     </div>
   </header>
 
-  <!-- Scroll Progress Bar -->
-  <div class="progress-bar" id="progress-bar"></div>
+
 
   <!-- COMMUNITYFILM section moved to the top -->
   <section id="about" style="position:relative; background: #fff;">
@@ -1357,15 +1353,7 @@ a, a:hover, a:active, a:focus {
       });
     });
 
-    // Scroll progress bar
-    const progressBar = document.getElementById("progress-bar");
 
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      progressBar.style.width = Math.min(Math.max(scrollPercent, 0), 100) + "%";
-    });
 
     // Smooth scroll navigation
     document.getElementById("home-link").addEventListener("click", e => {

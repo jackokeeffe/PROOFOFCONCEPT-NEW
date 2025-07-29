@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <title>love.1 | Watch Now</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/light/favicon-32x32.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/dark/favicon-32x32.png" media="(prefers-color-scheme: dark)">
@@ -34,7 +34,7 @@
       padding: 0;
       min-height: 100vh;
       scroll-behavior: smooth;
-      overflow: hidden !important;
+      overflow-x: hidden;
       scroll-snap-type: y mandatory;
       cursor: none !important;
     }
@@ -56,6 +56,7 @@
       -ms-user-select: none !important;
       -moz-user-select: none !important;
       -webkit-user-drag: none !important;
+      touch-action: manipulation;
     }
     .custom-cursor {
       position: fixed;
@@ -75,6 +76,19 @@
     .custom-cursor.cursor-hover {
       transform: translate(-50%, -50%) scale(1.5);
       background-color: #111111cc;
+    }
+
+    /* Hide custom cursor on mobile devices */
+    @media (max-width: 768px) {
+      .custom-cursor {
+        display: none !important;
+      }
+      html, body {
+        cursor: auto !important;
+      }
+      * {
+        cursor: auto !important;
+      }
     }
     .main-header {
       position: fixed;
@@ -98,18 +112,7 @@
       text-align: center;
       font-weight: bold;
     }
-    .progress-bar {
-      position: fixed;
-      bottom: 3.5rem;
-      left: 0;
-      height: 6px;
-      width: 0%;
-      background-color: #111;
-      z-index: 10000;
-      pointer-events: none;
-      border-radius: 3px;
-      transition: width 0.15s ease-out;
-    }
+    /* Progress bar removed */
     .love1-section {
       min-height: 100vh;
       width: 100vw;
@@ -525,15 +528,34 @@
         width: 28px;
         height: 28px;
       }
+      
+      /* Improve mobile layout for better back button access */
+      .love1-section {
+        min-height: auto;
+        padding-bottom: 2rem;
+      }
+      
+      .back-btn {
+        position: relative;
+        margin: 2rem auto 1rem auto;
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 1.5rem !important;
+        z-index: 100;
+      }
+      
+      /* Ensure content is scrollable on mobile */
+      body {
+        overflow-y: auto;
+      }
     }
   </style>
 </head>
 <body>
   <div class="custom-cursor" id="cursor"></div>
   <header class="main-header">
-    <div class="main-header-title">PROOFOFCONCEPT</div>
+    <a href="/" class="main-header-title" style="text-decoration: none; color: inherit;">PROOFOFCONCEPT</a>
   </header>
-  <div class="progress-bar" id="progress-bar"></div>
   <main class="love1-section" id="main-section">
     <div class="stills-row">
       <img src="assets/images/love/image1.jpg" class="still-card" alt="love.1 still 1" draggable="false">
@@ -575,14 +597,7 @@
         cursor.classList.remove('cursor-hover');
       });
     });
-    // Scroll progress bar
-    const progressBar = document.getElementById("progress-bar");
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      progressBar.style.width = Math.min(Math.max(scrollPercent, 0), 100) + "%";
-    });
+
     // Footer reveal on scroll
     const mainSection = document.getElementById('main-section');
     const infoSection = document.getElementById('info-section');
