@@ -532,20 +532,28 @@
       /* Improve mobile layout for better back button access */
       .love1-section {
         min-height: auto;
-        padding-bottom: 2rem;
+        padding-bottom: 4rem;
+        height: auto;
       }
       
       .back-btn {
         position: relative;
-        margin: 2rem auto 1rem auto;
+        margin: 2rem auto 2rem auto;
         font-size: 1rem;
         padding: 0.8rem 1.5rem;
         border-radius: 1.5rem !important;
         z-index: 100;
+        display: block;
       }
       
       /* Ensure content is scrollable on mobile */
       body {
+        overflow-y: auto !important;
+        height: auto;
+      }
+      
+      html {
+        height: auto;
         overflow-y: auto;
       }
     }
@@ -554,7 +562,7 @@
 <body>
   <div class="custom-cursor" id="cursor"></div>
   <header class="main-header">
-    <a href="/" class="main-header-title" style="text-decoration: none; color: inherit;">PROOFOFCONCEPT</a>
+    <a href="index.html" class="main-header-title" style="text-decoration: none; color: inherit;">PROOFOFCONCEPT</a>
   </header>
   <main class="love1-section" id="main-section">
     <div class="stills-row">
@@ -572,7 +580,7 @@
         <div class="love1-desc">a real-time, community-driven film experience built for social-media with custom editing software.</div>
       </div>
     </div>
-    <a href="/" class="back-btn" aria-label="Back to home">Back</a>
+    <a href="index.html" class="back-btn" aria-label="Back to home">Back</a>
   </main>
   <script>
     // Custom cursor
